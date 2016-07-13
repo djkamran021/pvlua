@@ -24,10 +24,6 @@ A simple telegram-bot wtitten in LUA
 `/id` 
 
 
-نوشته شده توسط
-
-M.KH @cruel0098
-
 وارد فایل bot.lua شوید
 `````````````````````````````````````````````````````````````````````````````````
  	local bot_api_key = "" --BOT TOKEN تو کن ربات خود را در اینجا قرار دهید
@@ -38,8 +34,18 @@ M.KH @cruel0098
 	
 	بعد از اینکار در سرور مراحل زیر را انجام دهید
 	
-	git clone https://github.com/mohamadkhoshnava/idbot.git
+	git clone 
 	بجای ادرس گیت بنده ادرس گیت خود را وارد کنید
+	
+	```bash
+	
+	sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev
+	
+	sudo apt-get install lua-socket
+	
+	sudo apt-get install lua-sec
+	
+	```
 	
 	lua bot.lua
 	
