@@ -1,3 +1,29 @@
+local function sendKeyboard(chat_id, text, keyboard, markdown)
+	
+	local url = BASE_URL .. '/sendMessage?chat_id=' .. chat_id
+	
+	if markdown then
+		url = url .. '&parse_mode=Markdown'
+	end
+	
+	url = url..'&text='..URL.escape(text)
+	
+	url = url..'&disable_web_page_preview=true'
+	
+	url = url..'&reply_markup='..JSON.encode(keyboard)
+	
+	local res, code = sendRequest(url)
+	
+	if not res and code then --if the request failed and a code is returned (not 403 and 429)
+		if code ~= 403 and code ~= 429 and code ~= 110 and code ~= 111 and code ~= 116 then
+			save_log('send_msg', code..'\n'..text)
+		end
+	end
+	
+	return res, code --return false, and the code
+
+end
+
 package.path = package.path .. ';.luarocks/share/lua/5.2/?.lua'
   ..';.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath .. ';.luarocks/lib/lua/5.2/?.so'
@@ -6,9 +32,9 @@ JSON = require('dkjson')
 HTTPS = require('ssl.https')
 dofile('utilities.lua')
 ----config----
-local bot_api_key = "" --BOT TOKEN تو کن ربات خود را در اینجا قرار دهید
-local You = 188548712  --ID ADMIN ایدی خود را اینجا قرار دهید
-local BASE_URL = "https://api.telegram.org/bot"..bot_api_key
+local bot_api_key = "189491388:AAHVb3fcafx5IknBhztooB2C7vIXY4arVrg" 
+local You = 191442464  
+local BASE_URL = "https://api.telegram.org/bot189491388:AAHVb3fcafx5IknBhztooB2C7vIXY4arVrg"
 local BASE_FOLDER = ""
 local start = [[ ]]
 
