@@ -25,18 +25,18 @@ A simple telegram-bot wtitten in LUA
 
 
 وارد فایل bot.lua شوید
-`````````````````````````````````````````````````````````````````````````````````
+        ```bash
  	local bot_api_key = "" --BOT TOKEN تو کن ربات خود را در اینجا قرار دهید
 	local You = 188548712 --ID ADMIN ایدی خود را اینجا قرار دهید
 	local BASE_URL = "https://api.telegram.org/bot"..bot_api_key
 	local BASE_FOLDER = ""
-	````````````````````````````````````````````````````````````````````````````````
+	
 	
 	بعد از اینکار در سرور مراحل زیر را انجام دهید
 	
 	git clone 
 	بجای ادرس گیت بنده ادرس گیت خود را وارد کنید
-	
+	```
 	```bash
 	
 	sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev
