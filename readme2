@@ -1,0 +1,73 @@
+بعد وارد شدن یک پروژه بسازید و از گیت زیر کلون کنید
+
+
+
+سپس در خط ۹ و ۱۰ توکن و ایدی را وارد کنید
+
+local bot_api_key = "محل قرار گیری توکن"
+local You = محل قرار گیری ایدی
+برای ران کردن ربات دستورات زیر را وارد کنید
+
+sudo apt-get install lua5.1
+bash launch.sh install
+
+
+برای ران کردن معمولی 
+lua bot.lua
+برای لانچ کردن بدون افی 
+bash ./launch.sh
+اگر میخواهید کیبورد شیشه ای داشته باشید فانکشن زیر را به خطوط اول اضافه کنید
+
+local function sendKeyboard(chat_id, text, keyboard, markdown)
+	
+	local url = BASE_URL .. '/sendMessage?chat_id=' .. chat_id
+	
+	if markdown then
+		url = url .. '&parse_mode=Markdown'
+	end
+	
+	url = url..'&text='..URL.escape(text)
+	
+	url = url..'&disable_web_page_preview=true'
+	
+	url = url..'&reply_markup='..JSON.encode(keyboard)
+	
+	local res, code = sendRequest(url)
+	
+	if not res and code then --if the request failed and a code is returned (not 403 and 429)
+		if code ~= 403 and code ~= 429 and code ~= 110 and code ~= 111 and code ~= 116 then
+			save_log('send_msg', code..'\n'..text)
+		end
+	end
+	
+	return res, code --return false, and the code
+
+end
+برای دکمه های کیبورد هم یک فانکشن مثل زیر بسازید
+
+local function do_keyboard_private()
+    local keyboard = {}
+    keyboard.inline_keyboard = {
+    {
+    	{text = 'M.KH Channel 🇮🇷', url = 'https://telegram.me/joinchat/C170sT3nHGn5yzfOv-ntvQ'},
+			{text = 'M.KH 🌐WEBSITE' , url = 'cruel-plus.ir'}
+	    }, 
+		{
+			{text='👤PV SUDO',url='http://telegram.me/it_mkh'},
+		},
+    }
+    return keyboard
+end
+سپس یک لوکال استارت بسازید
+
+local start = [text
+
+
+text
+
+]
+سپس به صورت زیر کیبورد را میتوانید ارسال کنید
+
+local keyboard = do_keyboard_private()
+            sendKeyboard(msg.chat.id, start, keyboard, true)
+امیدوارم آموزش ها کافی بوده باشه
