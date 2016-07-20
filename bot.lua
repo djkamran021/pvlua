@@ -36,8 +36,8 @@ local bot_api_key = "189491388:AAHVb3fcafx5IknBhztooB2C7vIXY4arVrg"
 local You = 191442464  
 local BASE_URL = "https://api.telegram.org/bot189491388:AAHVb3fcafx5IknBhztooB2C7vIXY4arVrg"
 local BASE_FOLDER = ""
-local start = [[ local keyboard = do_keyboard_private()
-            sendKeyboard(msg.chat.id, start, keyboard, true) ]]
+local start = [[ ❤️خوش آمدید به ربات پیام رسان ما❤️
+📌لطفا پیام خود را ارسال کنید📌 ]]
 
 -------
 
@@ -60,7 +60,7 @@ local help = [[
 `/id` ✴️
 ایدی
 ➖➖➖➖➖➖➖➖➖➖➖
-M.KH @cruel0098
+
 ]]--
 -------
 
@@ -275,7 +275,7 @@ function download_to_file(url, file_name, file_path)
   file:close()
   return file_path
 end
--------- @cruel0098 M.KH
+-------- 
 function bot_run()
 	bot = nil
 
